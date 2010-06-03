@@ -208,7 +208,7 @@
             mbScrollable.autoScrollActive=false;
           });
           pages.append(p);
-        };
+        }
       }
     },
     mbAutoscroll:function(){
