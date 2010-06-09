@@ -21,6 +21,7 @@
     version:"1.5.7",
     defaults:{
       dir:"horizontal",
+      textDir:"ltr",
       width:950,
       elementsInPage:4,
       elementMargin:2,
