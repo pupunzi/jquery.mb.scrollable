@@ -1,7 +1,7 @@
 /*******************************************************************************
  jquery.mb.components
  Copyright (c) 2001-2010. Matteo Bicocchi (Pupunzi); Open lab srl, Firenze - Italy
- email: info@pupunzi.com
+ email: mbicocchi@open-lab.com
  site: http://pupunzi.com
 
  Licences: MIT, GPL
@@ -209,7 +209,7 @@
             mbScrollable.autoScrollActive=false;
           });
           pages.append(p);
-        };
+        }
       }
     },
     mbAutoscroll:function(){
@@ -258,19 +258,15 @@
         controls.fadeIn();
       }
       if (mbScrollable.idx==mbScrollable.totalPages){
-        controls.find(".last").addClass("disabled");
-        controls.find(".next").addClass("disabled");
+        controls.find(".last, .next").addClass("disabled");
       }else{
-        controls.find(".last").removeClass("disabled");
-        controls.find(".next").removeClass("disabled");
+        controls.find(".last, .next").removeClass("disabled");
       }
 
       if (mbScrollable.idx==1){
-        controls.find(".first").addClass("disabled");
-        controls.find(".prev").addClass("disabled");
+        controls.find(".first, .prev").addClass("disabled");
       }else{
-        controls.find(".first").removeClass("disabled");
-        controls.find(".prev").removeClass("disabled");
+        controls.find(".first, .prev").removeClass("disabled");
       }
 
       if (mbScrollable.autoscroll){
@@ -324,7 +320,6 @@
   $.fn.mbFirstPage=$.mbScrollable.mbFirstPage;
   $.fn.mbLastPage=$.mbScrollable.mbLastPage;
   $.fn.mbPageIndex=$.mbScrollable.mbPageIndex;
-  $.fn.mbgotoPage=$.mbScrollable.gotoPage;
   $.fn.mbAutoscroll=$.mbScrollable.mbAutoscroll;
   $.fn.mbStopAutoscroll=$.mbScrollable.mbStopAutoscroll;
   $.fn.mbActivateControls=$.mbScrollable.mbActivateControls;
