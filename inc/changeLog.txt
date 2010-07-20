@@ -3,6 +3,9 @@
 jQuery.mb.scrollable
 ©2002 - 2009 Matteo Bicocchi
 
+1.6.0 Safari bugfix:
+  adjusted dimensions to prevent non int value.
+
 1.5.7 minor ISSUE:
   added "goToPage" method. Allow to jump to a specific page.
 

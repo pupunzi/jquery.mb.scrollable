@@ -11,18 +11,18 @@
 
 /*
  * Name:jquery.mb.scrollable
- * Version: 1.5.7
+ * Version: 1.6.0
  */
 
 (function($) {
   $.mbScrollable= {
     plugin:"mb.scrollable",
     author:"MB",
-    version:"1.5.7",
+    version:"1.6.0",
     defaults:{
       dir:"horizontal",
       textDir:"ltr",
-      width:950,
+      width:980,
       elementsInPage:4,
       elementMargin:2,
       shadow:false,
@@ -59,21 +59,19 @@
         mbScrollable.elements= $(mbScrollable).children();
         var eip= mbScrollable.options.elementsInPage<this.elements.size()?mbScrollable.options.elementsInPage:mbScrollable.elements.size();
         if(mbScrollable.isVertical){
-          mbScrollable.singleElDim= (mbScrollable.options.height/eip)-mbScrollable.options.elementMargin;
+          mbScrollable.singleElDim= Math.floor((mbScrollable.options.height/eip)-mbScrollable.options.elementMargin);
           $(mbScrollable.elements).css({marginBottom:mbScrollable.options.elementMargin, height:mbScrollable.singleElDim, width:mbScrollable.options.width});
         }else{
-          mbScrollable.singleElDim= (mbScrollable.options.width/eip)-mbScrollable.options.elementMargin;
+          mbScrollable.singleElDim= Math.floor((mbScrollable.options.width/eip)-mbScrollable.options.elementMargin);
           $(mbScrollable.elements).css({marginRight:mbScrollable.options.elementMargin, width:mbScrollable.singleElDim, display:"inline-block",float:"left" }); //float:"left"
         }
         this.elementsDim= (mbScrollable.singleElDim*mbScrollable.elements.size())+(mbScrollable.options.elementMargin*mbScrollable.elements.size());
         mbScrollable.totalPages= Math.ceil(mbScrollable.elements.size()/mbScrollable.options.elementsInPage);
 
-        var adj= $.browser.safari && mbScrollable.options.elementsInPage>2?mbScrollable.options.elementMargin/(mbScrollable.options.elementsInPage):0;
-
         if(mbScrollable.isVertical)
-          $(mbScrollable).css({overflow:"hidden", height:mbScrollable.options.height-adj,width:mbScrollable.options.width, paddingRight:5, position:"relative"});
+          $(mbScrollable).css({overflow:"hidden", height:((mbScrollable.singleElDim+mbScrollable.options.elementMargin)*mbScrollable.options.elementsInPage), paddingRight:5, position:"relative"});
         else
-          $(mbScrollable).css({overflow:"hidden", width:mbScrollable.options.width-adj,height:mbScrollable.options.height,paddingBottom:5, position:"relative"});
+          $(mbScrollable).css({overflow:"hidden", width:((mbScrollable.singleElDim+mbScrollable.options.elementMargin)*mbScrollable.options.elementsInPage),height:mbScrollable.options.height,paddingBottom:5, position:"relative"});
 
         var mbscrollableStrip=$("<div class='scrollableStrip'/>").css({width:mbScrollable.elementsDim, position:"relative"});
         $(mbScrollable.elements).wrapAll(mbscrollableStrip);
@@ -110,8 +108,7 @@
         return;
       }
       if (mbScrollable.options.nextCallback) mbScrollable.options.nextCallback();
-      var adj=  $.browser.safari && mbScrollable.options.elementsInPage>2?mbScrollable.options.elementMargin/mbScrollable.options.elementsInPage:0;
-      mbScrollable.scrollTo-=((mbScrollable.singleElDim+mbScrollable.options.elementMargin)*mbScrollable.options.elementsInPage)-adj;
+      mbScrollable.scrollTo-=((mbScrollable.singleElDim+mbScrollable.options.elementMargin)*mbScrollable.options.elementsInPage);
       if (mbScrollable.isVertical){
         if ((mbScrollable.scrollTo<-mbScrollable.elementsDim+mbScrollable.options.height))
           mbScrollable.scrollTo=-mbScrollable.elementsDim+mbScrollable.options.height;
@@ -136,8 +133,7 @@
 
       if (mbScrollable.options.prevCallback) mbScrollable.options.prevCallback();
 
-      var adj=  $.browser.safari && mbScrollable.options.elementsInPage>2?mbScrollable.options.elementMargin/mbScrollable.options.elementsInPage:0;
-      mbScrollable.scrollTo+=((mbScrollable.singleElDim+mbScrollable.options.elementMargin)*mbScrollable.options.elementsInPage)+adj;
+      mbScrollable.scrollTo+=((mbScrollable.singleElDim+mbScrollable.options.elementMargin)*mbScrollable.options.elementsInPage);
 
       if (mbScrollable.isVertical){
         if (mbScrollable.scrollTo>=0) mbScrollable.scrollTo=0;
