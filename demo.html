@@ -1,22 +1,20 @@
 <!doctype html>
+
 <!--
   ~ jquery.mb.components
   ~ Copyright (c) 2001-2010. Matteo Bicocchi (Pupunzi); Open lab srl, Firenze - Italy
-  ~ email: info@pupunzi.com
+  ~ email: mbicocchi@open-lab.com
   ~ site: http://pupunzi.com
   ~
   ~ Licences: MIT, GPL
   ~ http://www.opensource.org/licenses/mit-license.php
   ~ http://www.gnu.org/licenses/gpl.html
   -->
-
 <html>
 <head>
   <title>mbScrollable</title>
-
   <link href="css/mb.scrollable.css" rel="stylesheet" type="text/css" />
-
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script type="text/javascript" src="inc/mbScrollable.js"></script>
   <script type="text/javascript">
     $(function(){
@@ -38,6 +36,7 @@
         autoscroll:true,
         scrollTimer:4000
       });
+      $('#myScroll').goToPage(5,false);
 
       $("#myScroll1").mbScrollable({
         dir:"vertical",
@@ -57,13 +56,13 @@
   </script>
 
 </head>
-<body>
+<body >
 
 
 <div id="wrapper">
   <h1>mb.scrollable.demo</h1>
-  <div id="orizontal" >
-    One element per page; orizontal; autoscroll: true.
+  <div id="horizontal">
+    One element per page; horizontal; autoscroll: true.
     <br>
     <br>
     <div id="myScroll">
@@ -91,13 +90,14 @@
       <div class="goto" onclick="$('#myScroll').goToPage($('#pg').val());">go to page <input id="pg" style="width:20px; border:1px solid gray" value="1"></div>
       <div class="getIDX" onclick="alert($('#myScroll').get(0).idx);">getIDX</div>
     </div>
+
     <br>
     <br>
-    <span style="cursor:pointer;color:red; font-weight:bold;" onclick="$('#orizontal').fadeOut(500,function(){$('#vertical').fadeIn();});">show vertical scroller</span><br>
+    <span style="cursor:pointer;color:red; font-weight:bold;" onclick="$('#horizontal').fadeOut(500,function(){$('#vertical').fadeIn();});">show vertical scroller</span><br>
   </div>
 
   <div id="vertical" style="display:none;">
-    three elements per page; vertical; autoscroll: false.
+    three elements per page; vertical; auto-scroll: false.
     <br>
     <br>
     <div id="myScroll1">
@@ -125,18 +125,9 @@
     </div>
     <br>
     <br>
-    <span style="cursor:pointer;color:red; font-weight:bold;" onclick="$('#vertical').fadeOut(500,function(){$('#orizontal').fadeIn();});">show orizontal scroller</span><br>
+    <span style="cursor:pointer;color:red; font-weight:bold;" onclick="$('#vertical').fadeOut(500,function(){$('#horizontal').fadeIn();});">show horizontal scroller</span><br>
   </div>
 </div>
-
-<!--
-<div style="padding:6px;position:absolute;z-index:1000; bottom:10px; right:10px; -webkit-border-radius:7px;-moz-border-radius:7px;border:2px solid white; background:#000;text-align:center;color:white;">
-  Please support my work<br>with a free donation!<br><br>
-  <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=V6ZS8JPMZC446&amp;lc=GB&amp;item_name=mb%2eideas&amp;item_number=MBIDEAS&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donateCC_LG_global%2egif%3aNonHosted">
-    <img alt="PayPal" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif" border="0">
-  </a>
-</div>
--->
 
 </body>
 </html>
