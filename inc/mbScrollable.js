@@ -17,7 +17,7 @@
 (function($) {
 	$.mbScrollable= {
 		plugin:"mb.scrollable",
-		author:"MB",
+		author:"Matteo Bicocchi",
 		version:"1.7.0",
 		defaults:{
 			dir:"horizontal",
