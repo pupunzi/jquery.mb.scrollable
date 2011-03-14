@@ -34,9 +34,16 @@
         controls:"#controls",
         slideTimer:600,
         autoscroll:true,
-        scrollTimer:4000
+        scrollTimer:4000,
+				changePageCallback:function(){
+					var positiondisplay= $('#myScroll').get(0).idx+'/'+$('#myScroll').get(0).totalPages;
+					$('#controls .positiondisplay').html(positiondisplay);
+				},
+				loadCallback:function(){
+					var positiondisplay= $('#myScroll').get(0).idx+'/'+$('#myScroll').get(0).totalPages;
+					$('#controls .positiondisplay').html(positiondisplay);
+				}
       });
-      $('#myScroll').goToPage(5,false);
 
       $("#myScroll1").mbScrollable({
         dir:"vertical",
@@ -86,6 +93,7 @@
       <div class="first">first</div><div class="prev">prev</div>
       <div class="next">next</div><div class="last">last</div>
       <div class="pageIndex"></div>
+      <div class="positiondisplay">AAA</div>
       <div class="start">start</div><div class="stop">stop</div>
       <div class="goto" onclick="$('#myScroll').goToPage($('#pg').val());">go to page <input id="pg" style="width:20px; border:1px solid gray" value="1"></div>
       <div class="getIDX" onclick="alert($('#myScroll').get(0).idx);">getIDX</div>

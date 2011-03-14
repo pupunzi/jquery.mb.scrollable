@@ -24,6 +24,8 @@ body{
 #myScroll{
 /*display:none;*/
 }
+
+
 #myScroll .scrollEl{
   display:none;
   background:url("../elements/elBgnd.png") repeat-x;
@@ -72,6 +74,13 @@ body{
   -moz-box-shadow:#999 2px 2px 2px;
   -webkit-box-shadow:#999 2px 2px 2px;
 }
+
+#controls div.positiondisplay{
+	background:#000;
+	color:#fff;
+	cursor:default;
+}
+
 
 #myScroll1{
   float:left;
