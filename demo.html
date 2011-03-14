@@ -35,12 +35,12 @@
         slideTimer:600,
         autoscroll:true,
         scrollTimer:4000,
-				changePageCallback:function(){
-					var positiondisplay= $('#myScroll').get(0).idx+'/'+$('#myScroll').get(0).totalPages;
+				changePageCallback:function(o){
+					var positiondisplay= o.idx+'/'+o.totalPages;
 					$('#controls .positiondisplay').html(positiondisplay);
 				},
-				loadCallback:function(){
-					var positiondisplay= $('#myScroll').get(0).idx+'/'+$('#myScroll').get(0).totalPages;
+				loadCallback:function(o){
+					var positiondisplay= o.idx+'/'+o.totalPages;
 					$('#controls .positiondisplay').html(positiondisplay);
 				}
       });
