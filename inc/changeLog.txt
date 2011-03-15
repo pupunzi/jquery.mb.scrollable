@@ -3,6 +3,10 @@
 jQuery.mb.scrollable
 ©2002 - 2009 Matteo Bicocchi
 
+1.7.0 reformat code:
+  Cleaned up the methods to get the index (now all refers to the gotoPage method);
+  added “loadCallback”, “changePageCallback”.
+
 1.6.0 Safari bugfix:
   adjusted dimensions to prevent non int value.
 

@@ -75,12 +75,11 @@
 				else
 					$(mbScrollable).css({overflow:"hidden", width:((mbScrollable.singleElDim+mbScrollable.options.elementMargin)*mbScrollable.options.elementsInPage),height:mbScrollable.options.height,paddingBottom:5, position:"relative"});
 
-				var mbscrollableStrip=$("<div class='scrollableStrip'/>").css({width:mbScrollable.elementsDim, position:"relative"});
-				$(mbScrollable.elements).wrapAll(mbscrollableStrip);
+				var mbScrollableStrip=$("<div class='scrollableStrip'/>").css({width:mbScrollable.elementsDim, position:"relative"});
+				$(mbScrollable.elements).wrapAll(mbScrollableStrip);
 				mbScrollable.mbscrollableStrip=$(mbScrollable).find(".scrollableStrip");
 				$(mbScrollable.elements).hover(
 						function(){
-							//                  console.debug(mbScrollable.autoScrollActive);
 							if(mbScrollable.autoScrollActive)
 								$(mbScrollable).mbStopAutoscroll();
 						},
@@ -208,8 +207,9 @@
 			if (mbScrollable.elements.size()<=mbScrollable.options.elementsInPage){
 				controls.hide();
 			}else{
-				controls.fadeIn();
+				controls.show();
 			}
+
 			if (mbScrollable.idx==mbScrollable.totalPages){
 				controls.find(".last, .next").addClass("disabled");
 			}else{
